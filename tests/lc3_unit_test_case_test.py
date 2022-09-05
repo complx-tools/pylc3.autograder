@@ -8,8 +8,8 @@ import sys
 import unittest
 import zlib
 import pylc3.core
-from pylc3.autograder import lc3_unit_test_case
-from pylc3.autograder.lc3_unit_test_case import lDataItem
+from ..pylc3.autograder import lc3_unit_test_case
+from ..pylc3.autograder.lc3_unit_test_case import lDataItem
 
 
 # Note this file is not to be used as a template for writing student tests.
