@@ -27,4 +27,4 @@ jobs:
         pip3 install -r requirements.txt
     - name: Run Test
       run: |
-        python3 -m tests.lc3_unit_test_case_test
+        unit2
