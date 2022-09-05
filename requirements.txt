@@ -3,3 +3,5 @@ setuptools
 wheel
 pylc3.core
 unittest2
+enum34
+six
