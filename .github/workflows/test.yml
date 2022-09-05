@@ -24,6 +24,7 @@ jobs:
         sudo apt-get install -y castxml libpython3-dev libboost-python-dev liblc3-dev
         sudo python3 -m pip install --upgrade pip
         sudo pip3 install --upgrade scikit-build pygccxml pyplusplus wheel pip setuptools unittest2
+        sudo pip3 install -r requirements.txt
     - name: Run Test
       run: |
         python3 tests/lc3_unit_test_case_test.py
