@@ -21,10 +21,10 @@ jobs:
       run: |
         sudo add-apt-repository ppa:tricksterguy87/complx
         sudo apt-get update -qq
-        sudo apt-get install -y castxml libpython3-dev libboost-python-dev liblc3-dev python-six
-        sudo python3 -m pip install --upgrade pip
-        sudo pip3 install --upgrade scikit-build pygccxml pyplusplus
-        sudo pip3 install -r requirements.txt
+        # Build dependencies
+        sudo apt-get install -y castxml libpython3-dev libboost-python-dev liblc3-dev
+        pip3 install --upgrade scikit-build pygccxml pyplusplus
+        pip3 install -r requirements.txt
     - name: Run Test
       run: |
         python3 tests/lc3_unit_test_case_test.py
