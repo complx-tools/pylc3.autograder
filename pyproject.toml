@@ -4,5 +4,6 @@ requires = [
     "setuptools",
     "wheel"
     "pylc3.core"
+    "unittest2"
 ]
 build-backend = "setuptools.build_meta"

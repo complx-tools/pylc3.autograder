@@ -1,0 +1,29 @@
+name: Test
+
+on:
+  workflow_dispatch:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+        cache: 'pip
+    - name: Install dependencies
+      run: |
+        sudo add-apt-repository ppa:tricksterguy87/complx
+        sudo apt-get update -qq
+        sudo apt-get install -y castxml libpython3-dev libboost-python-dev liblc3-dev
+        sudo python3 -m pip install --upgrade pip
+        sudo pip3 install --upgrade scikit-build pygccxml pyplusplus wheel pip setuptools unittest2
+    - name: Run Test
+      run: |
+        python3 tests/lc3_unit_test_case_test.py
