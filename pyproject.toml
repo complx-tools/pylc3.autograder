@@ -1,0 +1,8 @@
+[build-system]
+requires = [
+    "pip==21.0",
+    "setuptools",
+    "wheel"
+    "pylc3.core"
+]
+build-backend = "setuptools.build_meta"
