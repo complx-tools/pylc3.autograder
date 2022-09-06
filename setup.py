@@ -2,10 +2,13 @@
 # -*- coding: utf-8 -*-
 """The setup script."""
 
-from setuptools import setup, find_packages
+from setuptools import setup, find_namespace_packages
 
 with open('README.rst') as f:
     readme = f.read()
+
+with open('requirements.txt') as f:
+    requirements = f.read()
 
 setup(
     name='pylc3.core',
@@ -17,5 +20,6 @@ setup(
     author_email='brandon.whitehead@gatech.edu',
     url='https://github.com/complx-tools/pylc3.autograder',
     license="GNU General Public License v3",
-    packages=find_packages(exclude=['tests', 'docs']),
+    packages=find_namespace_packages(inlcude=['pylc3.*']),
+    install_requires=requirements,
 )
