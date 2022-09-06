@@ -20,6 +20,6 @@ setup(
     author_email='brandon.whitehead@gatech.edu',
     url='https://github.com/complx-tools/pylc3.autograder',
     license="GNU General Public License v3",
-    packages=find_namespace_packages(inlcude=['pylc3.*']),
+    packages=find_namespace_packages(include=['pylc3.*']),
     install_requires=requirements,
 )
