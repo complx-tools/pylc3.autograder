@@ -11,7 +11,7 @@ with open('requirements.txt') as f:
     requirements = f.read()
 
 setup(
-    name='pylc3.core',
+    name='pylc3.autograder',
     version='0.1.0',
     description="Autograder and Unit testing framework for LC-3 code written in Python, exports test results in JSON.",
     long_description=readme,
