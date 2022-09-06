@@ -8,13 +8,13 @@ with open('README.rst') as f:
     readme = f.read()
 
 requirements = [
-    "pip==21.0"
-    "setuptools"
-    "wheel"
-    "pylc3.core"
-    "unittest2"
-    "enum34"
-    "six"
+    "pip==21.0",
+    "setuptools",
+    "wheel",
+    "pylc3.core",
+    "unittest2",
+    "enum34",
+    "six",
 ]
 
 setup(
