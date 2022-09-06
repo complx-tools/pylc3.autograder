@@ -7,8 +7,15 @@ from setuptools import setup, find_namespace_packages
 with open('README.rst') as f:
     readme = f.read()
 
-with open('requirements.txt') as f:
-    requirements = f.read()
+requirements = [
+    "pip==21.0"
+    "setuptools"
+    "wheel"
+    "pylc3.core"
+    "unittest2"
+    "enum34"
+    "six"
+]
 
 setup(
     name='pylc3.autograder',
