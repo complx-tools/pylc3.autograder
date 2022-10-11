@@ -19,7 +19,7 @@ requirements = [
 
 setup(
     name='pylc3.autograder',
-    version='0.1.3',
+    version='0.2.0',
     description="Autograder and Unit testing framework for LC-3 code written in Python, exports test results in JSON.",
     long_description=readme,
     long_description_content_type='text/x-rst',
