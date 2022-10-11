@@ -605,6 +605,9 @@ class LC3UnitTestCase(unittest.TestCase):
         self._internalAssert('assembles', not status, 'Unable to load file %s\nReason: %s' % (filename, status), AssertionType.fatal)
         self._internalAssert('version', self.state.lc3_version == lc3_version, 'File uses different lc3 version than grader version: %d expected: %d\n' % (self.state.lc3_version, lc3_version), AssertionType.hard)
         self.setLC3Version(lc3_version)
+        self._internalSetFilename(filename)
+    
+    def _internalSetFilename(self, filename):
         self.asm_filename = pathlib.Path(filename).name
 
     def loadPattObjAndSymFile(self, obj_file, sym_file):
