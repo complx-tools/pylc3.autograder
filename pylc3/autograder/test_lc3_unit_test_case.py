@@ -1744,7 +1744,7 @@ class LC3UnitTestCaseTest(lc3_unit_test_case.LC3UnitTestCase):
         .end
         """
         self.loadCode(snippet)
-        self.asm_filename = 'test'
+        self.asm_filename = 'foo/bar/test'
         self.callSubroutine("TATA", {0: 3, 4: 5})
 
         blob = self.preconditions.encode()
