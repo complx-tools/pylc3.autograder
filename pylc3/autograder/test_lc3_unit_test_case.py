@@ -696,7 +696,7 @@ class LC3UnitTestCaseTest(lc3_unit_test_case.LC3UnitTestCase):
         """
         self.loadCode(snippet)
 
-        self.expectTrapCall(0x80, params=[])
+        self.expectTrapCall(0x80, params={})
         self.runCode()
         self.assertTrapCallsMade()
 

@@ -1984,7 +1984,7 @@ class LC3UnitTestCase(unittest.TestCase):
             if call.vector in self.trap_specifications:
                 params = tuple([(reg, param) for reg, param in enumerate(call.regs) if reg in self.trap_specifications[call.vector]])
             else:
-                params = []
+                params = tuple([])
             actual_traps.add((call.vector, params))
 
         made_calls = self.expected_traps & actual_traps
