@@ -684,6 +684,53 @@ class LC3UnitTestCaseTest(lc3_unit_test_case.LC3UnitTestCase):
         self.assertNoWarnings()
 
         self.assertTrapCallsMade()
+        
+    def testInvalidTrapCall(self):
+        snippet = """
+        .orig x3000
+            LD R0, CHR
+            OUT
+            HALT
+            CHR .fill 32
+        .end
+        """
+        self.loadCode(snippet)
+
+        self.expectTrapCall(0x80, params=[])
+        self.runCode()
+        self.assertTrapCallsMade()
+
+        names = [tup[0] for tup in self.failed_assertions]
+        msgs = [tup[1] for tup in self.failed_assertions]
+
+        self.assertEqual(names, ['trap calls made'])
+        self.assertIn('Expected the following traps to be made: TRAP x80()\nCalls made correctly: none\nRequired calls missing: TRAP x80()\nUnknown subroutine calls made: OUT()', msgs[0])
+
+        # Clear so that the test doesn't fail during tearDown.
+        self.failed_assertions = []
+
+    def testInvalidTrapCall2(self):
+        snippet = """
+        .orig x3000
+            LD R0, CHR
+            OUT
+            HALT
+            CHR .fill 32
+        .end
+        """
+        self.loadCode(snippet)
+
+        self.runCode()
+        self.assertTrapCallsMade()
+
+        names = [tup[0] for tup in self.failed_assertions]
+        msgs = [tup[1] for tup in self.failed_assertions]
+
+        self.assertEqual(names, ['trap calls made'])
+        self.assertIn('Expected no traps to have been made.\nCalls made correctly: none\nRequired calls missing: none\nUnknown subroutine calls made: OUT()', msgs[0])
+
+        # Clear so that the test doesn't fail during tearDown.
+        self.failed_assertions = []
 
     def testSubroutineCallBasic(self):
         snippet = """

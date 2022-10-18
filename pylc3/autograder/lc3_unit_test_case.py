@@ -1981,7 +1981,10 @@ class LC3UnitTestCase(unittest.TestCase):
 
         actual_traps = set()
         for call in self.state.first_level_traps:
-            params = tuple([(reg, param) for reg, param in enumerate(call.regs) if reg in self.trap_specifications[call.vector]])
+            if call.vector in self.trap_specifications:
+                params = tuple([(reg, param) for reg, param in enumerate(call.regs) if reg in self.trap_specifications[call.vector]])
+            else:
+                params = []
             actual_traps.add((call.vector, params))
 
         made_calls = self.expected_traps & actual_traps
@@ -1990,7 +1993,7 @@ class LC3UnitTestCase(unittest.TestCase):
         unknown_calls = actual_traps - (self.expected_traps | self.optional_traps)
 
         status_message = ''
-        status_message += 'Expected the following traps to have been made: %s\n' % trap_list(self.expected_traps) if self.expected_traps else 'Expected no traps to have been called.\n'
+        status_message += 'Expected the following traps to have been made: %s\n' % trap_list(self.expected_traps) if self.expected_traps else 'Expected no traps to have been made.\n'
         status_message += 'Traps made correctly: %s\n' % (trap_list(made_calls) if made_calls else 'none')
         status_message += 'Required traps missing: %s\n' % (trap_list(missing_calls) if missing_calls else 'none')
         status_message += 'Accepted optional traps made: %s\n' % trap_list(optional_calls) if optional_calls else ''
