@@ -1144,7 +1144,10 @@ class LC3UnitTestCase(unittest.TestCase):
 
         self._internalAssert('expectTrapCall', not (value in self.expected_subroutines and value in self.optional_subroutines), 'Trap %s found in both expected and optional subroutine calls.' % str(value), AssertionType.fatal, internal=True)
 
-        data = list(six.moves.reduce(lambda a, b: a + b, list(params.items())))
+        if params:
+            data = list(six.moves.reduce(lambda a, b: a + b, list(params.items())))
+        else:
+            data = []
         self.postconditions.add(PostconditionFlag.pass_by_regs, 'x%02x' % vector, data)
 
     def fillValue(self, address, value):

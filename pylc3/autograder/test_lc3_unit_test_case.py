@@ -704,7 +704,7 @@ class LC3UnitTestCaseTest(lc3_unit_test_case.LC3UnitTestCase):
         msgs = [tup[1] for tup in self.failed_assertions]
 
         self.assertEqual(names, ['trap calls made'])
-        self.assertIn('Expected the following traps to be made: TRAP x80()\nCalls made correctly: none\nRequired calls missing: TRAP x80()\nUnknown subroutine calls made: OUT()', msgs[0])
+        self.assertIn('Expected the following traps to be made: TRAP x80()\nTraps made correctly: none\nRequired traps missing: TRAP x80()\nUnknown traps made: OUT', msgs[0])
 
         # Clear so that the test doesn't fail during tearDown.
         self.failed_assertions = []
@@ -727,7 +727,7 @@ class LC3UnitTestCaseTest(lc3_unit_test_case.LC3UnitTestCase):
         msgs = [tup[1] for tup in self.failed_assertions]
 
         self.assertEqual(names, ['trap calls made'])
-        self.assertIn('Expected no traps to have been made.\nCalls made correctly: none\nRequired calls missing: none\nUnknown subroutine calls made: OUT()', msgs[0])
+        self.assertIn('Expected no traps to have been made.\nTraps made correctly: none\nRequired traps missing: none\nUnknown traps made: OUT', msgs[0])
 
         # Clear so that the test doesn't fail during tearDown.
         self.failed_assertions = []
