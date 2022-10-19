@@ -1,7 +1,7 @@
 """Autograder addon library for pylc3.core"""
 __author__ = """Brandon Whitehead"""
 __email__ = 'brandon.whitehead@gatech.edu'
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 
 from .lc3_unit_test_case import LC3UnitTestCase
 from .lc3_unit_test_case import LC3InternalAssertion
