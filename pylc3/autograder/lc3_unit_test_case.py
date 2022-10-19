@@ -1996,7 +1996,7 @@ class LC3UnitTestCase(unittest.TestCase):
         unknown_calls = actual_traps - (self.expected_traps | self.optional_traps)
 
         status_message = ''
-        status_message += 'Expected the following traps to have been made: %s\n' % trap_list(self.expected_traps) if self.expected_traps else 'Expected no traps to have been made.\n'
+        status_message += 'Expected the following traps to be made: %s\n' % trap_list(self.expected_traps) if self.expected_traps else 'Expected no traps to have been made.\n'
         status_message += 'Traps made correctly: %s\n' % (trap_list(made_calls) if made_calls else 'none')
         status_message += 'Required traps missing: %s\n' % (trap_list(missing_calls) if missing_calls else 'none')
         status_message += 'Accepted optional traps made: %s\n' % trap_list(optional_calls) if optional_calls else ''
